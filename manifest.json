@@ -1,0 +1,30 @@
+{
+    "manifest_version": 2,
+
+    "name": "Font Changer",
+    "description": "Change fonts on a page, leaving existing fonts as fallbacks, so that e.g. icon fonts still work.",
+    "version": "1.0",
+    "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+            "js": ["content_script.js"]
+        }
+    ],
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "permissions": [
+       "tabs"
+    ],
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
+    "page_action": {
+        "default_title": "Change fonts",
+        "default_icon": "icon_disabled.png",
+        "default_popup": "popup.html"
+    },
+    "content_security_policy": "script-src 'self' ; object-src 'self'"
+}
